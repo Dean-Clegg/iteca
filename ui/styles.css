@@ -7,4 +7,54 @@
     left: 0;
     z-index: -1;
     padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_screen, #register_screen {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+#login-form, #register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input {
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.auth-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.auth-link:hover {
+    color: #0056b3;
 }

@@ -8,7 +8,6 @@ try {
     }
     $query = file_get_contents($sql_file_path);
 
-    // Get form data
     $input_email = isset($_POST['email']) ? $_POST['email'] : '';
     $input_password = isset($_POST['password']) ? $_POST['password'] : '';
 

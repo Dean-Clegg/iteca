@@ -1,3 +1,9 @@
+import state from '/state.js';
+import { User } from '/models/user.js';
+
+// Initialize window.auth if not already defined
+window.auth = window.auth || {};
+
 window.auth = {
     async handleLogin(event) {
         event.preventDefault();
@@ -14,8 +20,15 @@ window.auth = {
             });
             const result = await response.json();
             if (result.success) {
-                alert('Login Successful: ' + JSON.stringify(result.user));
-                navigateTo('main_screen');
+                const user = User.fromJSON(result.user);
+                if (user.isValid()) {
+                    state.setUser(user);
+                    console.log('Login Successful', state.getUser());
+                    alert('Login Successful!');
+                    navigateTo('main_screen');
+                } else {
+                    alert('Invalid user data');
+                }
             } else {
                 alert('Login Failed: ' + result.message);
             }
@@ -40,13 +53,25 @@ window.auth = {
             });
             const result = await response.json();
             if (result.success) {
-                alert('Registration Successful: ' + JSON.stringify(result.user));
-                navigateTo('main_screen');
+                const user = User.fromJSON(result.user);
+                if (user.isValid()) {
+                    state.setUser(user);
+                    console.log('Registration Successful', state.getUser());
+                    alert('Registration Successful: ' + state.getUser());
+                    navigateTo('main_screen');
+                } else {
+                    alert('Invalid user data');
+                }
             } else {
                 alert('Registration Failed: ' + result.message);
             }
         } catch (error) {
             alert('Error: ' + error.message);
         }
+    },
+
+    logout() {
+        state.clearUser();
+        window.navigateTo('main_screen');
     }
 };
