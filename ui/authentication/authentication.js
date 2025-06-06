@@ -1,7 +1,6 @@
 import state from '/state.js';
 import { User } from '/models/user.js';
 
-// Initialize window.auth if not already defined
 window.auth = window.auth || {};
 
 window.auth = {

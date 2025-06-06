@@ -85,20 +85,6 @@ nav a {
     text-decoration: none;
 }
 
-/*Buttons*/
-.btn {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 20px;
-}
-
-.btn:hover {
-    background: #0056b3;
-}
-
 .ad-banner {
     width: 200px;
     height: 100%;
