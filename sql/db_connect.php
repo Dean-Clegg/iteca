@@ -1,10 +1,11 @@
 <?php
+$config = require __DIR__ . '/db_config.php';
 
-// Database configuration
-$host = '154.0.164.149';
-$dbname = 'almsafpa_eduvosprojd';
-$username = 'almsafpa_usrEduvos';
-$password = 'V55G4tqJ2cu56P2';
+$host = $config['host'];
+$dbname = $config['dbname'];
+$username = $config['username'];
+$password = $config['password'];
+
 
 try {
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";

@@ -1,8 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Screen</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
 <div class="gradient-background">
-    <div id="main_screen">
-        <h1>Hello World</h1>
-        <button onclick="navigateTo('login_screen')">Go to Login</button>
+    <nav>
+        <button class="btn" onclick="navigateTo('login_screen')">Login</button>
+        <button class="btn" onclick="navigateTo('cart_screen')">Cart</button>
+        <button class="btn" onclick="navigateTo('orders_screen')">Orders</button>
+        <button class="btn-btn" onclick="navigateTo('admin_screen')">Admin</button>
+    </nav>
+
+    <div class="ad-banner left">
+        <img src="https://images.pexels.com/photos/20351653/pexels-photo-20351653/free-photo-of-close-up-of-cheese.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Left Ad Banner">
+    </div>
+
+    <div class="product-list">
+        <div class="product" onclick="navigateTo('product_detail?id=1')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>R49.9</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=2')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=3')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=4')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 4">
+            <h3>Product 4</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=5')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 5">
+            <h3>Product 5</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=6')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 6">
+            <h3>Product 6</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=7')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 7">
+            <h3>Product 7</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=8')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 8">
+            <h3>Product 8</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=9')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 9">
+            <h3>Product 9</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=10')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 10">
+            <h3>Product 10</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=11')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 11">
+            <h3>Product 11</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=12')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 12">
+            <h3>Product 12</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=13')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 13">
+            <h3>Product 13</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=14')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 14">
+            <h3>Product 14</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=15')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 15">
+            <h3>Product 15</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=16')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 16">
+            <h3>Product 16</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=17')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 17">
+            <h3>Product 17</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=18')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 18">
+            <h3>Product 18</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=19')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 19">
+            <h3>Product 19</h3>
+            <p>R49.99</p>
+        </div>
+        <div class="product" onclick="navigateTo('product_detail?id=20')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZHVjdHN8ZW58MHwwfDB8fHww" alt="Product 20">
+            <h3>Product 20</h3>
+            <p>R49.99</p>
+        </div>
+    </div>
+
+    <div class="ad-banner right">
+        <img src="https://images.pexels.com/photos/20351653/pexels-photo-20351653/free-photo-of-close-up-of-cheese.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Right Ad Banner">
     </div>
 </div>
+<script src="../../app.js"></script>
 </body>
+</html>
