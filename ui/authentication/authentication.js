@@ -1,5 +1,3 @@
-import state from '/state.js';
-import { User } from '/models/user.js';
 
 window.auth = window.auth || {};
 
@@ -19,10 +17,10 @@ window.auth = {
             });
             const result = await response.json();
             if (result.success) {
-                const user = User.fromJSON(result.user);
+                const user = window.User.fromJSON(result.user);
                 if (user.isValid()) {
-                    state.setUser(user);
-                    console.log('Login Successful', state.getUser());
+                    window.state.setUser(user);
+                    console.log('Login Successful', window.state.getUser());
                     alert('Login Successful!');
                     navigateTo('main_screen');
                 } else {
@@ -52,11 +50,11 @@ window.auth = {
             });
             const result = await response.json();
             if (result.success) {
-                const user = User.fromJSON(result.user);
+                const user = window.User.fromJSON(result.user);
                 if (user.isValid()) {
                     state.setUser(user);
-                    console.log('Registration Successful', state.getUser());
-                    alert('Registration Successful: ' + state.getUser());
+                    console.log('Registration Successful', window.state.getUser());
+                    alert('Registration Successful: ' + window.state.getUser());
                     navigateTo('main_screen');
                 } else {
                     alert('Invalid user data');

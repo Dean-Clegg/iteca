@@ -1,4 +1,4 @@
-export class User {
+window.User = class User {
     constructor(id, userName, email, role) {
         this.id = id;
         this.userName = userName;

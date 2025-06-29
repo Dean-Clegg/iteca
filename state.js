@@ -1,18 +1,21 @@
-import { User } from './models/user.js';
-
-const state = {
+window.state = {
     user: null,
+    products: [],
 
     init() {
         const storedUser = sessionStorage.getItem('user');
         if (storedUser) {
-            this.user = User.fromJSON(JSON.parse(storedUser));
+            this.user = window.User.fromJSON(JSON.parse(storedUser));
+        }
+        const storedProducts = sessionStorage.getItem('products');
+        if (storedProducts) {
+            this.products = JSON.parse(storedProducts).map(data => window.Product.fromJSON(data));
         }
     },
 
     setUser(user) {
         if (user && typeof user === 'object') {
-            this.user = new User(
+            this.user = new window.User(
                 user.id || null,
                 user.userName || null,
                 user.email || null,
@@ -31,9 +34,20 @@ const state = {
     clearUser() {
         this.user = null;
         sessionStorage.removeItem('user');
+    },
+
+    setProducts(products) {
+        if (Array.isArray(products)) {
+            this.products = products;
+            sessionStorage.setItem('products', JSON.stringify(products.map(p => p.toJSON ? p.toJSON() : p)));
+        } else {
+            throw new Error('Invalid products array');
+        }
+    },
+
+    getProducts() {
+        return this.products;
     }
 };
 
-state.init();
-
-export default state;
+window.state.init();

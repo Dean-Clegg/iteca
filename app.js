@@ -12,11 +12,11 @@ async function loadScreen(screenId, queryParams = '') {
         } else if (screenId === 'product_detail') {
             screenPath = `ui/main/${screenId}.html`;
         } else if (screenId === 'cart_screen') {
-            screenPath = `ui/profile/${screenId}.html`;
+            screenPath = `ui/profile/cart/${screenId}.html`;
         } else if (screenId === 'admin_screen') {
-            screenPath = `ui/profile/${screenId}.html`;
+            screenPath = `ui/profile/admin/${screenId}.html`;
         } else if (screenId === 'orders_screen') {
-            screenPath = `ui/profile/${screenId}.html`;
+            screenPath = `ui/profile/cart/${screenId}.html`;
         } else {
             screenPath = `ui/main/main_screen.html`;
         }
@@ -30,6 +30,7 @@ async function loadScreen(screenId, queryParams = '') {
 
         if (screenId === 'main_screen') {
             attachMainScreenEvents();
+            await loadProductsScript();
         } else if (screenId === 'login_screen') {
             attachLoginScreenEvents();
         } else if (screenId === 'register_screen') {
@@ -43,13 +44,44 @@ async function loadScreen(screenId, queryParams = '') {
     }
 }
 
+async function loadProductsScript() {
+    return new Promise(async (resolve, reject) => {
+        if (typeof window.loadProducts === 'function') {
+            window.loadProducts().then(resolve).catch(reject);
+            return;
+        }
+
+        const dependencies = [
+            '/state.js',
+            '/models/product.js',
+            'ui/main/products.js'
+        ];
+
+        for (const src of dependencies) {
+            await new Promise((depResolve, depReject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.async = true;
+                script.onload = depResolve;
+                script.onerror = () => depReject(new Error(`Failed to load ${src}`));
+                document.head.appendChild(script);
+            });
+        }
+
+        if (typeof window.loadProducts === 'function') {
+            window.loadProducts().then(resolve).catch(reject);
+        } else {
+            reject(new Error('loadProducts function not found in products.js'));
+        }
+    });
+}
+
 function navigateTo(screenId) {
     const [baseScreen, queryString] = screenId.split('?');
     const queryParams = queryString ? `?${queryString}` : '';
     loadScreen(baseScreen, queryParams);
 }
 
-// Make navigateTo globally available
 window.navigateTo = navigateTo;
 
 function attachMainScreenEvents() {
@@ -62,7 +94,6 @@ function attachMainScreenEvents() {
         registerButton.onclick = () => navigateTo('register_screen');
     }
 
-    // Attach event listeners for product clicks
     const products = document.querySelectorAll('.product');
     products.forEach(product => {
         product.addEventListener('click', () => {
@@ -95,20 +126,16 @@ function attachRegisterScreenEvents() {
 }
 
 function attachProductDetailsEvents() {
-    // Add event listeners for product details page
     const backButton = document.querySelector('button[onclick="navigateTo(\'main_screen\')"]');
     if (backButton) {
         backButton.onclick = () => navigateTo('main_screen');
     }
 
-    // Example: Load product details based on query parameter
     const queryParams = new URLSearchParams(window.currentQueryParams);
     const productId = queryParams.get('id');
     if (productId) {
         console.log(`Loading details for product ID: ${productId}`);
-        // In a real app, fetch product details from the backend here
     }
 }
 
-// Load the initial screen
 loadScreen('main_screen');
